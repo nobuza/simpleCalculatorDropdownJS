@@ -18,26 +18,29 @@
     
     <select id="operatorDropdown">
       <option value="OPERATOR" selected="selected">Choose</option>
-      <option value="operatorAdd" >+</option>
-      <option value="operatorSubtract" >-</option>
-      <option value="operatorSubtract" >*</option>
-      <option value="operatorSubtract" >/</option>
+      <option value="+" >+</option>
+      <option value="-" >-</option>
+      <option value="*" >*</option>
+      <option value="/" >/</option>
     </select>
     
     <input type="text" id="number2" name="name" required minlength="1" maxlength="9999">
 
-    <!--<button onclick="calculate(document.getElementById('operatorDropdown').value), resultText" class="buttonResult">=</button>  -->
-    <button onclick="calculate('*', resultText)" class="buttonResult">=</button>
+    <button onclick="calculate(document.getElementById('operatorDropdown').value)" class="buttonResult">=</button>
+    <!--<button onclick="calculate('*')" class="buttonResult">=</button>   -->
 
     <input type="text" id="resultText" name="resultText" value="RESULT"/>
     <!-------------+----------------+-------------+------------JAVASCRIPT-----------+--------------+-----------+-------------+----------+-->
     <script>
-      function calculate(operator,resultText) {
+      function calculate(operator){
         var a,b;
+        var selectDropdown = document.getElementById('operatorDropdown');
+        var dropdownSelectedOperator = selectDropdown.options[selectDropdown.selectedIndex].value;
+        console.log("dropdownSelectedOperator equals to:", dropdownSelectedOperator); // en
         a = document.getElementById("number1").value;
         b = document.getElementById("number2").value;
         var result = eval(a+operator+b);
-        document.getElementById(resultText).value = result;
+        document.getElementById("resultText").value = result;
         return result;
       }
     </script>
