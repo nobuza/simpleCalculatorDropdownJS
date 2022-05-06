@@ -37,9 +37,42 @@
         var selectDropdown = document.getElementById('operatorDropdown');
         var dropdownSelectedOperator = selectDropdown.options[selectDropdown.selectedIndex].value;
         console.log("dropdownSelectedOperator equals to:", dropdownSelectedOperator); // en
-        a = document.getElementById("number1").value;
-        b = document.getElementById("number2").value;
-        var result = eval(a+operator+b);
+        number1 = document.getElementById("number1").value;
+        number2 = document.getElementById("number2").value;
+
+        var result;
+        switch (operator) {
+          case "+":
+            result = parseInt(number1) + parseInt(number2);            
+            break;
+          case "-":
+            result = parseInt(number1) - parseInt(number2);            
+            break;
+          case "*":
+            result = parseInt(number1) * parseInt(number2);            
+            break;
+          case "/":
+            result = parseInt(number1) / parseInt(number2);            
+            break;
+        
+          default:
+            break;
+        }
+        /*
+        if(operator == "+"){
+          result = parseInt(number1) + parseInt(number2);
+        }
+        else if(operator == "-"){
+          result = parseInt(number1) - parseInt(number2);
+        }
+        else if(operator == "/"){
+          result = parseInt(number1) / parseInt(number2);
+        }
+        else if(operator == "*"){
+          result = parseInt(number1) * parseInt(number2);
+        }
+        */
+
         document.getElementById("resultText").value = result;
         return result;
       }
